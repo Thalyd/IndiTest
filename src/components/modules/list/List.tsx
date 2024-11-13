@@ -1,6 +1,7 @@
 import useApiCall from "../../../hooks/useApiCall"
+import Card from "../../shared/card/card"
 import Spinner from "../../shared/spinner/spinner"
-
+import "./list.scss"
 
 /**
  * A List component that displays a list of podcasts.
@@ -21,8 +22,10 @@ export default function List(){
         <div className="componentList">
             <h1>Podcasts</h1>
             <div>{loading && <Spinner/>}</div>
-            <div>{(!loading && data) && JSON.stringify(data)}</div>
-           
+            <ol>
+                {(!loading && data) && data.map((item) => <Card item={item} />)}
+            </ol>
+            
         </div>
     )
 }
