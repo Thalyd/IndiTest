@@ -1,4 +1,4 @@
-import './spinner.css'
+import './spinner.scss'
 /**
  * Spinner is a simple component that displays a
  * loading animation.
