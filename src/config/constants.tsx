@@ -1,0 +1,1 @@
+export const CorrsEvader = "https://api.allorigins.win/get?url=";

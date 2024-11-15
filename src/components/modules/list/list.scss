@@ -1,9 +1,8 @@
 $grid-gap: 1rem;
-$min-column-width: 150px; 
-
+$min-column-width: 250px;
 
 ol {
-  list-style-type: decimal; 
+  list-style-type: decimal;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax($min-column-width, 1fr));
   gap: $grid-gap;
@@ -11,5 +10,5 @@ ol {
   margin: 0;
   list-style: none;
   max-width: 80%;
-  margin: auto
+  margin: auto;
 }
