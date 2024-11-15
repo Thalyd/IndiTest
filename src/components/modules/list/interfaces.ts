@@ -1,11 +1,7 @@
 export interface ITunesResponse {
     contents: string,
     feed: {
-        entry: ITunesListItem[]
+        entry: any[]
     }
 }
 
-export interface ITunesListItem {
-    title: {label: string},
-    id: {attributes: {"im:id": string}},
-}

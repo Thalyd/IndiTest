@@ -1,28 +1,32 @@
-import useApiCall from "../../../hooks/useApiCall"
-import Spinner from "../../shared/spinner/spinner"
+import { useGetPodcasts } from "../../../api/useGetPodcasts";
 
+import Card from "./card/card";
+import Spinner from "../../shared/spinner/spinner";
+import "./list.scss";
 
 /**
- * A List component that displays a list of podcasts.
+ * Un componente List que muestra una lista de podcasts.
  *
- * The component fetches a list of podcasts from the iTunes API
- * and displays them in a div with the class "componentList". If
- * the data is still loading, a Spinner component is displayed
- * instead.
+ * El componente obtiene una lista de podcasts de la API de iTunes
+ * y los muestra en un div con la clase "componentList". Si
+ * los datos aún se están cargando, se muestra un componente Spinner
+ * en su lugar.
  *
  * @returns {JSX.Element}
  */
-export default function List(){
 
+export default function List() {
+  const { PodcastList, loading } = useGetPodcasts();
 
-    const {data,loading} = useApiCall({url: "https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json"})
-
-    return (
-        <div className="componentList">
-            <h1>Podcasts</h1>
-            <div>{loading && <Spinner/>}</div>
-            <div>{(!loading && data) && JSON.stringify(data)}</div>
-           
-        </div>
-    )
+  return (
+    <div className="podList">
+      <h1>Podcasts</h1>
+      <div>{loading && <Spinner />}</div>
+      <ol>
+        {!loading &&
+          PodcastList &&
+          PodcastList.map((item, index) => <Card item={item} key={index} />)}
+      </ol>
+    </div>
+  );
 }

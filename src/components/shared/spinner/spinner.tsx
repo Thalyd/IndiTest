@@ -1,10 +1,10 @@
 import './spinner.scss'
 /**
- * Spinner is a simple component that displays a
- * loading animation.
- *
- * @returns {JSX.Element}
- */
+* Spinner es un componente simple que muestra una
+* animación de carga.
+*
+* @returns {JSX.Element}
+*/
 export default function Spinner() {
 
     return (
