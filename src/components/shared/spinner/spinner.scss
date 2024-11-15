@@ -1,10 +1,12 @@
-
 $spinner-size: 40px;
 $spinner-border-width: 4px;
 $spinner-outline-color: rgba(0, 0, 0, 0.1);
 $spinner-primary-color: #3498db;
 
 .spinner {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   width: $spinner-size;
   height: $spinner-size;
   border: $spinner-border-width solid $spinner-outline-color;

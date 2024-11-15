@@ -35,6 +35,9 @@ p {
   -webkit-line-clamp: 3;
   line-clamp: 3;
   max-height: 70px;
+  &:first-of-type {
+    margin-bottom: 10px;
+  }
 }
 
 @keyframes bounce {
