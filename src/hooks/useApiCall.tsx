@@ -6,23 +6,36 @@ interface useAxiosProps {
   url: string;
   type?: "GET" | "POST" | "PUT" | "DELETE";
   time?: number;
+  skip?: boolean;
 }
 
 /**
- * useApiCall es un Hook que se encarga de realizar una petición HTTP
- * a una url dada. La petici´pn se hace a través de la API de AllOrigins
- * que convierte la respuesta en un objeto JSON.
+ * Hook para realizar una petición HTTP a una API.
  *
- * @param {{url: string, type?: "GET" | "POST" | "PUT" | "DELETE"}} props
- *    - url: la url a la que se va a realizar la petición.
- *    - type: el tipo de petici n HTTP que se va a realizar. Por defecto es "GET".
+ * El Hook devuelve un objeto con las siguientes propiedades:
+ * - datos: el resultado de la petición en formato JSON.
+ * - cargando: un booleano que indica si la petición está en curso.
+ * - complete: un booleano que indica si la petici n ha finalizado.
  *
- * @returns {{data: any, loading: boolean, complete: boolean}}
- *    - data: el resultado de la petición. Si la petición falla, es null.
- *    - loading: un booleano que indica si la petición está en curso.
- *    - complete: un booleano que indica si la petición ya ha finalizado.
+ * Se pueden pasar los siguientes por metros:
+ * - url: la URL de la petición.
+ * - tipo: el tipo de petición ("GET", "POST", "PUT", "DELETE").
+ * - skip: un booleano que indica si se debe omitir la petición n.
+ *
+ * La petición se env a solo si el par metro skip es falso y si el gancho
+ * no ha sido llamado anteriormente.
+ *
+ * @example
+ * const { datos, cargando, completo } = useApiCall({
+ * url: "https://api.example.com/data",
+ * tipo: "GET",
+ * });
  */
-export default function useApiCall({ url, type = "GET" }: useAxiosProps) {
+export default function useApiCall({
+  url,
+  type = "GET",
+  skip = false,
+}: useAxiosProps) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [complete, setComplete] = useState(false);
@@ -54,13 +67,13 @@ export default function useApiCall({ url, type = "GET" }: useAxiosProps) {
           break;
       }
     }
-    if (!Initiated.current) {
+    if (!Initiated.current && !skip) {
       Initiated.current = true;
       setLoading(true);
       setComplete(false);
       fetchData();
     }
-  }, [url, type, loading, complete]);
+  }, [url, type, loading, complete, skip]);
 
   return { data, loading, complete };
 }
