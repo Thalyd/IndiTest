@@ -1,5 +1,7 @@
 {
   "list": {
-    "author": "Author"
+    "author": "Author",
+    "placeholder": "Filter Podcasts...",
+    "noResults": "No Podcasts found"
   }
 }
