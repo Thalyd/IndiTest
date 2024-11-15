@@ -1,6 +1,7 @@
 import "./config/translations/i18next.js";
 import Layout from "./config/Layout";
 import Router from "./config/Router";
+import ContextCache from "./config/contextCache.tsx";
 
 /**
  * El punto de entrada principal de la aplicación.
@@ -12,9 +13,11 @@ import Router from "./config/Router";
  */
 function App() {
   return (
-    <Layout>
-      <Router />
-    </Layout>
+    <ContextCache>
+      <Layout>
+        <Router />
+      </Layout>
+    </ContextCache>
   );
 }
 
