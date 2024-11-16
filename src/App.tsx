@@ -1,7 +1,7 @@
-import "./config/translations/i18next.js";
-import Layout from "./config/Layout";
-import Router from "./config/Router";
-import ContextCache from "./config/contextCache.tsx";
+import "@Config/i18next.js";
+import Layout from "@Config/layout/Layout";
+import Router from "@Config/Router";
+import ContextCache from "@Config/contextCache.tsx";
 
 /**
  * El punto de entrada principal de la aplicación.

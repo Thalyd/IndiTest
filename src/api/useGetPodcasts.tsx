@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
-import useApiCall from "../hooks/useApiCall";
-import { CacheMem } from "../config/contextCache";
+import useApiCall from "@Hooks/useApiCall";
+import { CacheMem } from "@Config/contextCache";
 
 export interface ITunesListItem {
   name: string;

@@ -20,8 +20,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "craco start",
+    "build": "craco build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -42,5 +42,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^@Components/(.*)$": "<rootDir>/src/components/shared/$1",
+      "^@Config/(.*)$": "<rootDir>/src/config/$1",
+      "^@Utils/(.*)$": "<rootDir>/src/components/shared/utils/$1",
+      "^@Modules/(.*)$": "<rootDir>/src/components/modules/$1",
+      "^@Api/(.*)$": "<rootDir>/src/api/$1",
+      "^@Hooks/(.*)$": "<rootDir>/src/hooks/$1"
+    }
+  },
+  "devDependencies": {
+    "@craco/craco": "^7.1.0",
+    "typescript": "^5.6.3",
+    "webpack": "^5.96.1"
   }
 }

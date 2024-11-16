@@ -1,0 +1,14 @@
+@import "../Mixins.scss";
+
+header {
+  width: 80%;
+  margin: 0% 10%;
+  margin-bottom: 70px;
+  color: $linkColor;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+}

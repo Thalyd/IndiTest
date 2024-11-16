@@ -1,12 +1,12 @@
-import { ITunesListItem, useGetPodcasts } from "../../../api/useGetPodcasts";
+import { ITunesListItem, useGetPodcasts } from "@Api/useGetPodcasts";
 
-import Card from "./card/card";
-import Spinner from "../../shared/spinner/spinner";
+import Card from "@Modules/list/card/card";
+import Spinner from "@Components/spinner/spinner";
 import "./list.scss";
 import { useEffect, useState } from "react";
-import { normalize } from "../../shared/utils/normalize";
-import SearchTool from "./searchTool/searchTool";
-import NoResults from "./noResults/noResults";
+import { normalize } from "@Utils/normalize";
+import SearchTool from "@Modules/list//searchTool/searchTool";
+import NoResults from "@Modules/list//noResults/noResults";
 
 /**
  * Un componente funcional que muestra una lista de podcasts.
@@ -29,11 +29,23 @@ export default function List() {
     setList(podList);
   }, [podList]);
 
-  function Search(value: ITunesListItem) {
+  function search(value: ITunesListItem) {
     return (
       normalize(value.name).includes(normalize(filtering)) ||
       normalize(value.author).includes(normalize(filtering))
     );
+  }
+
+  function ghostify(card: ITunesListItem) {
+    let exists = true;
+    if (
+      !List.filter(search)
+        .map(el => el.id)
+        .includes(card.id)
+    ) {
+      exists = false;
+    }
+    return exists;
   }
 
   return (
@@ -43,16 +55,16 @@ export default function List() {
       : <div>
           <SearchTool
             UpdateParent={setFiltering}
-            Count={List.filter(Search).length}
+            Count={List.filter(search).length}
           />
+          {List.filter(search).length === 0 && !loading && <NoResults />}
           <ol>
             {!loading &&
               List &&
-              List.filter(Search).map((item, index) => (
-                <Card item={item} key={index} />
+              List.map((item, index) => (
+                <Card item={item} key={index} ghost={ghostify(item)} />
               ))}
           </ol>
-          {List.filter(Search).length === 0 && <NoResults />}
         </div>
       }
     </div>
