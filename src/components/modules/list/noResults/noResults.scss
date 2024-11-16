@@ -4,7 +4,7 @@
   @include card;
   animation: shake 0.3s linear;
   list-style: none;
-  max-width: 80%;
+  max-width: calc(80% - 30px);
   margin: auto;
   position: relative;
   padding-top: 30px;

@@ -39,6 +39,7 @@ p {
   text-overflow: ellipsis;
   -webkit-line-clamp: 3;
   line-clamp: 3;
+  text-shadow: 0px 0px 1px #0000001c;
   max-height: 70px;
   &:first-of-type {
     margin-bottom: 10px;

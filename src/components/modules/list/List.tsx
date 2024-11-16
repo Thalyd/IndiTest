@@ -19,6 +19,7 @@ import NoResults from "@Modules/list//noResults/noResults";
  *
  * @returns {JSX.Element} Un div que contiene la lista de podcasts o un indicador de carga.
  */
+
 export default function List() {
   const { podList, loading } = useGetPodcasts();
 
@@ -57,7 +58,9 @@ export default function List() {
             UpdateParent={setFiltering}
             Count={List.filter(search).length}
           />
-          {List.filter(search).length === 0 && !loading && <NoResults />}
+          {List.filter(search).length === 0 && !loading && filtering && (
+            <NoResults />
+          )}
           <ol>
             {!loading &&
               List &&

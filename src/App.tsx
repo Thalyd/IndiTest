@@ -4,19 +4,16 @@ import Router from "@Config/Router";
 import ContextCache from "@Config/contextCache.tsx";
 
 /**
- * El punto de entrada principal de la aplicación.
- *
- * Este componente representa el <Layout /> principal y dentro de él el <Router /> principal
- * que es el punto de entrada al sistema de enrutamiento de la aplicación.
- *
- * @returns {React.ReactElement} El elemento JSX.
+ * El componente raíz de la aplicación. Este componente es el punto de
+ * entrada a la aplicación y se encarga de configurar el enrutador y el
+ * contexto de la aplicación.
+ * @returns {JSX.Element}
+ * - un elemento JSX que contiene el enrutador y el contexto.
  */
 function App() {
   return (
     <ContextCache>
-      <Layout>
-        <Router />
-      </Layout>
+      <Router Layout={Layout} />
     </ContextCache>
   );
 }
