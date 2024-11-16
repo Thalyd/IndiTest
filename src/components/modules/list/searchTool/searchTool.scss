@@ -18,6 +18,14 @@ input {
   }
 }
 
+.clear {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  transform: translateY(-50%);
+}
 .searchTool {
   display: flex;
   justify-content: end;
@@ -25,6 +33,7 @@ input {
   margin-right: 10%;
   margin-left: 10%;
   margin-bottom: 100px;
+  position: relative;
 }
 
 span {

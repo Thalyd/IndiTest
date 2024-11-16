@@ -1,3 +1,4 @@
+import Icon from "@Components/icon/icon";
 import "./searchTool.scss";
 import { useTranslation } from "react-i18next";
 
@@ -32,6 +33,9 @@ export default function SearchTool({ UpdateParent, Count }: SearchToolProps) {
           UpdateParent(e.target.value);
         }}
       />
+      <div className="clear" onClick={() => UpdateParent("")}>
+        <Icon name="Close" />
+      </div>
     </div>
   );
 }
