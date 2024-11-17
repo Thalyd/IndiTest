@@ -4,5 +4,6 @@
     "placeholder": "Filter Podcasts...",
     "noResults": "No Podcasts found"
   },
-  "title": "Podcaster"
+  "title": "Podcaster",
+  "noDescription": "No description propvided"
 }

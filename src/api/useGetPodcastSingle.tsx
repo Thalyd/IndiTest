@@ -39,6 +39,7 @@ export function useGetPodcastSingle({ id }: UseGetPodcastSingleProps) {
 
   useEffect(() => {
     if (!loading && complete && !getPodcast(id)) {
+      console.log("data", data);
       updatePodList({
         name: data.results[0].collectionName,
         image: data.results[0].artworkUrl100,

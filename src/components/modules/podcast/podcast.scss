@@ -1,5 +1,12 @@
 @import "@Config/Mixins.scss";
 
-.card {
+.Info {
   @include card;
+  animation-iteration-count: 0 !important;
+  pointer-events: none;
+
+  max-height: unset;
+}
+.Podcast {
+  grid-area: 1/1 / span 2 / span 3;
 }

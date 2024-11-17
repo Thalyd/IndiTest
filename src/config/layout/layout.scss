@@ -19,6 +19,12 @@ header {
 #content {
   max-width: 80%;
   margin: auto;
+  display: grid;
+  grid-template-areas:
+    ".........."
+    "..........";
+  grid-template-columns: repeat(10, 10%);
+  grid-template-rows: 50% 50%;
 }
 
 a {
