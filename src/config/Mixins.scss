@@ -9,3 +9,7 @@
 }
 
 $linkColor: dodgerblue;
+
+@mixin separator {
+  border-bottom: 2px solid rgb(128 128 128 / 18%);
+}

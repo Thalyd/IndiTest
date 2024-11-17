@@ -8,3 +8,4 @@ export const CorrsEvader = "https://api.allorigins.win/get?url=";
 
 const HoursEquals = 1000 * 60 * 60;
 export const CacheMemory = HoursEquals * 24;
+export const EpisodesPerRequest = 20;

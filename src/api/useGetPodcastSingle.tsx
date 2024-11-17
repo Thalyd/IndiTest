@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import useApiCall from "@Hooks/useApiCall";
 import { CacheMem } from "@Config/contextCache";
+import { EpisodesPerRequest } from "@Config/constants";
 
 export interface PodData {
   name: string;
@@ -13,6 +14,7 @@ export interface PodData {
 }
 
 export interface Episode {
+  id: string;
   title: string;
   date: Date;
   duration: Date;
@@ -31,7 +33,8 @@ export function useGetPodcastSingle({ id }: UseGetPodcastSingleProps) {
     url:
       "https://itunes.apple.com/lookup?id=" +
       id +
-      "&media=podcast&entity=podcastEpisode&limit=20",
+      "&media=podcast&entity=podcastEpisode&limit=" +
+      EpisodesPerRequest,
     skip:
       podsData.length > 0 &&
       podsData.find((pod: PodData) => pod.id === Number(id)) !== undefined,
@@ -42,7 +45,7 @@ export function useGetPodcastSingle({ id }: UseGetPodcastSingleProps) {
       console.log("data", data);
       updatePodList({
         name: data.results[0].collectionName,
-        image: data.results[0].artworkUrl100,
+        image: data.results[0].artworkUrl600,
         author: data.results[0].artistName,
         id: data.results[0].collectionId,
         description: data.results[0].description,
@@ -50,6 +53,7 @@ export function useGetPodcastSingle({ id }: UseGetPodcastSingleProps) {
         episodes: data.results
           .filter((_, index) => index > 0)
           .map((episode: any) => ({
+            id: episode.trackId,
             title: episode.trackName,
             date: new Date(episode.releaseDate),
             duration: new Date(episode.trackTimeMillis),

@@ -1,9 +1,19 @@
 {
+  "generics": {
+    "by": "By",
+    "description": "Description",
+    "count": "Episodes"
+  },
   "list": {
     "author": "Author",
     "placeholder": "Filter Podcasts...",
     "noResults": "No Podcasts found"
   },
   "title": "Podcaster",
-  "noDescription": "No description propvided"
+  "noDescription": "No description provided",
+  "table": {
+    "title": "Title",
+    "date": "Date",
+    "duration": "Duration"
+  }
 }

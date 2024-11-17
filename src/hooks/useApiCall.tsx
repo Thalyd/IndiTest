@@ -39,6 +39,7 @@ export default function useApiCall({
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [complete, setComplete] = useState(false);
+
   const Initiated = useRef(false);
 
   useEffect(() => {
