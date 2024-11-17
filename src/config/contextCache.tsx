@@ -2,6 +2,7 @@ import { createContext, useEffect, useMemo, useState } from "react";
 import { ITunesListItem } from "@Api/useGetPodcasts";
 import clearTimeZone from "@Utils/clearTimeZone";
 import { CacheMemory } from "@Config/constants";
+import { PodData } from "@Api/useGetPodcastSingle";
 
 export const CacheMem = createContext(null);
 
@@ -9,6 +10,11 @@ const rightNow = clearTimeZone(new Date());
 const tomorrow = new Date(
   new Date(rightNow).setTime(rightNow.getTime() + CacheMemory)
 );
+
+interface PodDataWithMem extends PodData {
+  lastSesion: Date;
+  expireDate: Date;
+}
 
 /**
  * ContextCache es un contexto que envuelve toda la aplicación y almacena
@@ -29,41 +35,128 @@ export default function ContextCache({
   children?: React.ReactNode;
 }) {
   const [podList, setPodList] = useState<ITunesListItem[]>([]);
+  const [podsData, setPodsData] = useState<PodData[]>([]);
 
   const storedSession = localStorage.getItem("session");
+  const session = JSON.parse(storedSession);
 
-  if (storedSession) {
-    const session = JSON.parse(storedSession);
-    console.log("expireDate", new Date(new Date(session.expireDate).getTime()));
-    console.log("rightNow", rightNow);
+  if (!storedSession) {
+    createSession();
+  } else {
+    checkHealth();
+  }
+
+  function checkHealth() {
     if (new Date(new Date(session.expireDate).getTime()) < rightNow) {
       localStorage.removeItem("session");
     }
-  }
 
-  if (storedSession && podList.length === 0) {
-    const session = JSON.parse(storedSession);
+    const podsToRemove = podsData.map((pod: PodDataWithMem) => {
+      if (0 > 23) {
+        //
+        return pod.id;
+      }
+    });
 
-    setPodList(session.podList);
+    if (podList.length === 0 && session.podList.length > 0) {
+      setPodList(session.podList);
+    }
+
+    if (podsData.length === 0 && session.podsData.length > 0) {
+      setPodsData(session.podsData);
+    }
+
+    if (podsData.length > 0) {
+      removePodFromSession(podsToRemove);
+    }
   }
 
   useEffect(() => {
     if (podList.length > 0 && !storedSession) {
-      const sessionObject = {
-        podList: podList,
-        lastSession: rightNow,
-        expireDate: tomorrow,
-      };
-      localStorage.setItem("session", JSON.stringify(sessionObject));
     }
   }, [podList, storedSession]);
+
+  function removePodFromSession(ids: number[]) {
+    const localStoredSession = localStorage.getItem("session");
+    const localSession = JSON.parse(localStoredSession);
+    const UpdateSesion = {
+      ...localSession,
+      podsData: localSession.podsData.filter(
+        (pod: PodData) => !ids.includes(pod.id)
+      ),
+    };
+    localStorage.setItem("session", JSON.stringify(UpdateSesion));
+  }
+
+  function updatePodList(newPod: PodData) {
+    const localStoredSession = localStorage.getItem("session");
+    const localSession = JSON.parse(localStoredSession);
+
+    if (localSession) {
+      const UpdateSesion = {
+        ...session,
+        podsData: [
+          ...podsData,
+          { ...newPod, lastSesion: rightNow, expireDate: tomorrow },
+        ],
+      };
+      localStorage.setItem("session", JSON.stringify(UpdateSesion));
+      setPodsData([...podsData, newPod]);
+    } else {
+      updatePodList(newPod);
+    }
+  }
+
+  function updateList(newPods: ITunesListItem[]) {
+    const localStoredSession = localStorage.getItem("session");
+    const localSession = JSON.parse(localStoredSession);
+    if (localSession) {
+      const UpdateSesion = {
+        podList: newPods,
+        lastSession: rightNow,
+        expireDate: tomorrow,
+        podsData: localSession.podsData ?? [],
+      };
+      localStorage.setItem("session", JSON.stringify(UpdateSesion));
+      setPodList(newPods);
+    } else {
+      updateList(newPods);
+    }
+  }
+
+  function createSession() {
+    const localSession = {
+      podList: [],
+      lastSession: undefined,
+      expireDate: undefined,
+      podsData: [],
+    };
+    localStorage.setItem("session", JSON.stringify(localSession));
+  }
+
+  function getPodcast(id: string) {
+    return podsData.find((pod: PodData) => pod.id === Number(id));
+  }
 
   const cacheValue = useMemo(
     () => ({
       podList,
       setPodList,
+      podsData,
+      setPodsData,
+      updatePodList,
+      getPodcast,
+      updateList,
     }),
-    [podList, setPodList]
+    [
+      podList,
+      setPodList,
+      podsData,
+      setPodsData,
+      updatePodList,
+      getPodcast,
+      updateList,
+    ]
   );
 
   return <CacheMem.Provider value={cacheValue}>{children}</CacheMem.Provider>;

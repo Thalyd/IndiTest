@@ -48,7 +48,7 @@ export default function useApiCall({
           axios
             .get(CorrsEvader + encodeURIComponent(url), {})
             .then((res: AxiosResponse) => {
-              setData(JSON.parse(res.data.contents).feed.entry);
+              setData(JSON.parse(res.data.contents));
             })
             .catch((error: AxiosError) => {
               console.log("error : " + url, error);
