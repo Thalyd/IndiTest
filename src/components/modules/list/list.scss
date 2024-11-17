@@ -9,6 +9,9 @@ ol {
   padding: 0;
   margin: 0;
   list-style: none;
-  max-width: 80%;
-  margin: auto;
+  width: 100%;
+}
+
+.podList {
+  grid-area: 1 / 1 / -1 / -1;
 }

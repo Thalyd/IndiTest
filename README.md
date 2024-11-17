@@ -17,12 +17,13 @@ Utilizaremos una SPA simple para este caso, sin más esfuerzos que el create app
 
 ### Notas
 
-- **acerca de SASS** : En mi opinión personal, los procesadores de CSS nacen para cubrir necesidades que hoy en dia cubre mucho mejor un procesador de CSS javascript como por ejemplo emotion/styled, ya que estos gestionan mejor los cambios de estado para alterar sus variables.
+- **Acerca de SASS** : En mi opinión personal, los procesadores de CSS nacen para cubrir necesidades que hoy en dia cubre mucho mejor un procesador de CSS javascript como por ejemplo emotion/styled, ya que estos gestionan mejor los cambios de estado para alterar sus variables.
 
 - **IA** : Nos servimos de Codeium para generar ágilmente la documentación, pero siempre revisandola antes.
-- **formatter** : Prettier
+- **Formatter** : Prettier
 - **Nomenclatura** : Optamos por camelCase para las variables
-- **localization** : Usamos i18next para dejar todos los textos en un diccionario y una fácil traducción posterior si fuera necesaría
+- **Localization** : Usamos i18next para dejar todos los textos en un diccionario y una fácil traducción posterior si fuera necesaría
+- **Selectores** : Dado que existen multiples formas de conoseguir un effecto , he ido aplicando diferentes selectores y pseudoselectores a lo largo del código para plasmar la versatilidad que existe.
 
 ### Cambios en el diseño propuesto
 

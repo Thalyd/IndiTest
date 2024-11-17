@@ -1,10 +1,10 @@
-@import "../../../../config/Mixins.scss";
+@import "@Config/Mixins.scss";
 
 .noResults {
   @include card;
   animation: shake 0.3s linear;
   list-style: none;
-  max-width: calc(80% - 30px);
+
   margin: auto;
   position: relative;
   padding-top: 30px;
@@ -13,13 +13,6 @@
   justify-content: space-between;
   p:last-of-type {
     color: gray;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .noResults {
-    max-width: 80%;
-    margin: 0% 10%;
   }
 }
 

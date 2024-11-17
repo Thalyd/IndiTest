@@ -22,7 +22,7 @@ export interface ITunesListItem {
  * - complete: Booleano que indica si la operación de obtención se ha completado.
  */
 export function useGetPodcasts() {
-  const { podList, setPodList } = useContext(CacheMem);
+  const { podList, updateList } = useContext(CacheMem);
 
   const { data, loading, complete } = useApiCall({
     url: "https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json",
@@ -31,8 +31,8 @@ export function useGetPodcasts() {
 
   useEffect(() => {
     if (!loading && complete && podList.length === 0) {
-      setPodList(
-        data.map(item => {
+      updateList(
+        data.feed.entry.map(item => {
           return {
             name: item.title.label,
             image: item["im:image"][1].label,
@@ -42,7 +42,8 @@ export function useGetPodcasts() {
         })
       );
     }
-  }, [data, complete, loading, podList, setPodList]);
+  }, [data, complete, loading, podList, updateList]);
 
+ 
   return { podList, loading, complete };
 }

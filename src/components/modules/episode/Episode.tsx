@@ -1,11 +1,8 @@
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
+import "./episode.scss";
 
+export default function Episode() {
+  const id = useParams().episodeId;
 
-
-export default function Episode(){
-    const id = useParams().episodeId
-
-    return (
-        <div className="componentEpisode">Episode {id}</div>
-    )
+  return <div className="Episode">Episode {id}</div>;
 }
