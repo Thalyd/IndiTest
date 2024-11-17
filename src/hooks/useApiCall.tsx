@@ -38,6 +38,7 @@ export default function useApiCall({
 }: useAxiosProps) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [complete, setComplete] = useState(false);
 
   const Initiated = useRef(false);
@@ -52,7 +53,8 @@ export default function useApiCall({
               setData(JSON.parse(res.data.contents));
             })
             .catch((error: AxiosError) => {
-              console.log("error : " + url, error);
+              window.alert("error : " + url + ": " + error.message);
+              setError(error);
             })
             .finally(() => {
               setLoading(false);
@@ -76,5 +78,5 @@ export default function useApiCall({
     }
   }, [url, type, loading, complete, skip]);
 
-  return { data, loading, complete };
+  return { data, loading, complete, error };
 }

@@ -29,7 +29,7 @@ interface UseGetPodcastSingleProps {
 export function useGetPodcastSingle({ id }: UseGetPodcastSingleProps) {
   const { podsData, updatePodList, getPodcast } = useContext(CacheMem);
 
-  const { data, loading, complete } = useApiCall({
+  const { data, loading, complete, error } = useApiCall({
     url:
       "https://itunes.apple.com/lookup?id=" +
       id +
@@ -41,8 +41,7 @@ export function useGetPodcastSingle({ id }: UseGetPodcastSingleProps) {
   });
 
   useEffect(() => {
-    if (!loading && complete && !getPodcast(id)) {
-      console.log("data", data);
+    if (!loading && complete && !getPodcast(id) && !error) {
       updatePodList({
         name: data.results[0].collectionName,
         image: data.results[0].artworkUrl600,
@@ -62,7 +61,7 @@ export function useGetPodcastSingle({ id }: UseGetPodcastSingleProps) {
           })),
       });
     }
-  }, [data, complete, loading, podsData, updatePodList]);
+  }, [data, complete, loading, podsData, updatePodList, error, getPodcast, id]);
 
   return { podsData, loading, complete, getPodcast };
 }

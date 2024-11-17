@@ -22,7 +22,11 @@ export default function Table({ list }: TableProps) {
           <Link to={"./episode/" + item.id}>
             <p>{item.title}</p>
             <p>{dayFormat(item.date)}</p>
-            <p>{timeFormat(item.duration)}</p>
+            <p>
+              {item.duration !== null ?
+                timeFormat(item.duration)
+              : t("table.unknown")}
+            </p>
           </Link>
         </li>
       ))}

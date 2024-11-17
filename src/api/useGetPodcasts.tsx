@@ -24,13 +24,13 @@ export interface ITunesListItem {
 export function useGetPodcasts() {
   const { podList, updateList } = useContext(CacheMem);
 
-  const { data, loading, complete } = useApiCall({
+  const { data, loading, complete, error } = useApiCall({
     url: "https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json",
     skip: podList.length > 0,
   });
 
   useEffect(() => {
-    if (!loading && complete && podList.length === 0) {
+    if (!loading && complete && podList.length === 0 && !error) {
       updateList(
         data.feed.entry.map(item => {
           return {
@@ -42,8 +42,7 @@ export function useGetPodcasts() {
         })
       );
     }
-  }, [data, complete, loading, podList, updateList]);
+  }, [data, complete, loading, podList, updateList, error]);
 
- 
   return { podList, loading, complete };
 }

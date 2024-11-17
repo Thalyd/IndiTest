@@ -34,14 +34,26 @@ export default function Router({ Layout }: RouterProps) {
           <Route path="" element={<List />} />
           <Route
             path="podcast/:podcastId"
-            element={
-              <>
-                <Podcast />
-                <Outlet />
-              </>
-            }
+            element={<Outlet context={{ fromOutlet: false }} />} // Default context
           >
-            <Route path="episode/:episodeId" element={<Episode />} />
+            <Route
+              index
+              element={
+                <>
+                  <Podcast />
+                </>
+              }
+            />
+
+            <Route
+              path="episode/:episodeId"
+              element={
+                <>
+                  <Podcast clear />
+                  <Episode />
+                </>
+              }
+            />
           </Route>
         </Routes>
       </Layout>
