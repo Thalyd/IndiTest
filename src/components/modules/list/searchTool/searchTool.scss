@@ -25,6 +25,7 @@ input {
   width: 30px;
   height: 30px;
   transform: translateY(-50%);
+  cursor: pointer;
 }
 .searchTool {
   display: flex;
@@ -34,6 +35,12 @@ input {
   margin-left: 10%;
   margin-bottom: 100px;
   position: relative;
+}
+svg {
+  transform: scale(0.6);
+  path {
+    fill: $linkColor;
+  }
 }
 
 span {

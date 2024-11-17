@@ -27,3 +27,5 @@ Utilizaremos una SPA simple para este caso, sin más esfuerzos que el create app
 ### Cambios en el diseño propuesto
 
 - **Lista de podcasts** : Reducimos el espacio entre rows. Igualamos el height de cada card. Añadimos ellipsis para los textos muy largos. Añadimos sombreado suave superior a las imagenes para evitar mala visualización de las imagenes de fondo blanco. Añadimos pequeña animacion al hover.
+
+- **Debouncer en el filtro** : Porque es mejor esperar hasta el final de la escritura para realizar el filtro y no forzar tanto renderizado extra. De todas formas, para cumplir con los criterios de prueba, está parametrizado y se puede eliminar con solo un booleano

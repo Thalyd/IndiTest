@@ -57,6 +57,7 @@ export default function List() {
           <SearchTool
             UpdateParent={setFiltering}
             Count={List.filter(search).length}
+            debounce={true} // false para desactivar debounce y ajustarse a la prueba
           />
           {List.filter(search).length === 0 && !loading && filtering && (
             <NoResults />
