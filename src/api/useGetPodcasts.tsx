@@ -42,7 +42,7 @@ export function useGetPodcasts() {
         })
       );
     }
-  }, [data, complete, loading, podList, updateList]);
+  }, [data, complete, loading, podList, updateList, error]);
 
   return { podList, loading, complete };
 }

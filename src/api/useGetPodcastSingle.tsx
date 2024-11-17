@@ -61,7 +61,7 @@ export function useGetPodcastSingle({ id }: UseGetPodcastSingleProps) {
           })),
       });
     }
-  }, [data, complete, loading, podsData, updatePodList]);
+  }, [data, complete, loading, podsData, updatePodList, error, getPodcast, id]);
 
   return { podsData, loading, complete, getPodcast };
 }
