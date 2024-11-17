@@ -27,7 +27,8 @@ interface UseGetPodcastSingleProps {
 }
 
 export function useGetPodcastSingle({ id }: UseGetPodcastSingleProps) {
-  const { podsData, updatePodList, getPodcast } = useContext(CacheMem);
+  const { podsData, updatePodList, getPodcast, getEpisode } =
+    useContext(CacheMem);
 
   const { data, loading, complete, error } = useApiCall({
     url:
@@ -61,7 +62,17 @@ export function useGetPodcastSingle({ id }: UseGetPodcastSingleProps) {
           })),
       });
     }
-  }, [data, complete, loading, podsData, updatePodList, error, getPodcast, id]);
+  }, [
+    data,
+    complete,
+    loading,
+    podsData,
+    updatePodList,
+    error,
+    getPodcast,
+    id,
+    getEpisode,
+  ]);
 
-  return { podsData, loading, complete, getPodcast };
+  return { podsData, loading, complete, getPodcast, getEpisode };
 }

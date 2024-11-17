@@ -1,3 +1,26 @@
+@import "@Config/Mixins.scss";
+
 .Episode {
   grid-area: 1/5 / span 3 / span 6;
+  .card {
+    animation-iteration-count: 0 !important;
+    padding: 15px !important;
+    cursor: auto !important;
+  }
+
+  h1 {
+    width: 100%;
+    text-align: left;
+    font-size: 20px;
+  }
+  .description {
+    all: unset;
+    text-align: left;
+    font-style: italic;
+    white-space: break-spaces;
+    width: "100%";
+  }
+  .link {
+    color: $linkColor !important;
+  }
 }
