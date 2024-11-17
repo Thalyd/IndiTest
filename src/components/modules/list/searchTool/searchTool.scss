@@ -30,9 +30,7 @@ input {
 .searchTool {
   display: flex;
   justify-content: end;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
+
   margin-bottom: 100px;
   position: relative;
 }
@@ -55,7 +53,7 @@ span {
   justify-content: center;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 660px) {
   .searchTool {
     flex-direction: column;
     position: relative;

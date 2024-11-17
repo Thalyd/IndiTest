@@ -17,6 +17,11 @@ header {
   grid-template-rows: auto 1fr auto;
 }
 
+#content {
+  max-width: 80%;
+  margin: auto;
+}
+
 a {
   color: unset;
   text-decoration: unset;
