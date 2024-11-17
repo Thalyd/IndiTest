@@ -1,7 +1,7 @@
 import { createContext, useEffect, useMemo, useState } from "react";
-import { ITunesListItem } from "../api/useGetPodcasts";
-import clearTimeZone from "../components/shared/utils/clearTimeZone";
-import { CacheMemory } from "./constants";
+import { ITunesListItem } from "@Api/useGetPodcasts";
+import clearTimeZone from "@Utils/clearTimeZone";
+import { CacheMemory } from "@Config/constants";
 
 export const CacheMem = createContext(null);
 

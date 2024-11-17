@@ -2,13 +2,13 @@
 
 .noResults {
   @include card;
-  animation: shake 0.2s ease-in-out;
+  animation: shake 0.3s linear;
   list-style: none;
-  max-width: 80%;
+  max-width: calc(80% - 30px);
   margin: auto;
   position: relative;
   padding-top: 30px;
-  animation-iteration-count: 2;
+  animation-iteration-count: 3;
 
   justify-content: space-between;
   p:last-of-type {
@@ -29,7 +29,7 @@
     box-shadow: 0px 0px 10px 0px #0000003b;
   }
   25% {
-    transform: translateX(-5px);
+    transform: translateX(-15px);
     box-shadow: -5px 0px 10px 0px #0000003b;
   }
   50% {
@@ -37,7 +37,7 @@
     box-shadow: 0px 0px 10px 0px #0000003b;
   }
   75% {
-    transform: translateX(5px);
+    transform: translateX(15px);
     box-shadow: 5px 0px 10px 0px #0000003b;
   }
   100% {

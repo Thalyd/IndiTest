@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useEffect, useRef, useState } from "react";
-import { CorrsEvader } from "../config/constants";
+import { CorrsEvader } from "@Config/constants";
 
 interface useAxiosProps {
   url: string;

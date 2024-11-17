@@ -1,6 +1,6 @@
 ## Arquitectura
 
-Utilizaremos una SPA simple para este caso, sin más esfuerzos que el create app nativo de React.
+Utilizaremos una SPA simple para este caso, sin más esfuerzos que el create app nativo de React. le Añadiremos craco para poder usar aliases en las rutas de import y facilitar el desarrollo.
 
 1. **Capa de UI / componentes**: Contiene todos los componentes de UI que se encargan de renderizar la interfaz visual. Cada componente tiene su propio archivo de estilos y se organiza en carpetas por funcionalidad. Contiene los componentes que cargan el modulo correspondiente segun el router.
 2. **Capa de Business / hooks**: En esta capa se encuentran los hooks y contextos que manejan el estado y las reglas de negocio. La lógica de la aplicación se aísla aquí para facilitar el mantenimiento.
@@ -27,3 +27,5 @@ Utilizaremos una SPA simple para este caso, sin más esfuerzos que el create app
 ### Cambios en el diseño propuesto
 
 - **Lista de podcasts** : Reducimos el espacio entre rows. Igualamos el height de cada card. Añadimos ellipsis para los textos muy largos. Añadimos sombreado suave superior a las imagenes para evitar mala visualización de las imagenes de fondo blanco. Añadimos pequeña animacion al hover.
+
+- **Debouncer en el filtro** : Porque es mejor esperar hasta el final de la escritura para realizar el filtro y no forzar tanto renderizado extra. De todas formas, para cumplir con los criterios de prueba, está parametrizado y se puede eliminar con solo un booleano

@@ -1,0 +1,23 @@
+@import "../Mixins.scss";
+
+header {
+  width: 80%;
+  margin: 0% 10%;
+  margin-bottom: 70px;
+  color: dodgerblue;
+  padding: 20px 0px 10px 0px;
+  font-size: calc(300% - 1.5vw);
+  text-shadow: 0px 0px 2px #0000ff69;
+  border-bottom: 2px solid rgb(128 128 128 / 18%);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+a {
+  color: unset;
+  text-decoration: unset;
+}
