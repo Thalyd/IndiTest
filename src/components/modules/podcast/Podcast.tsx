@@ -7,7 +7,10 @@ import Table from "./table";
 import Count from "./count";
 import Info from "./info";
 
-export default function Podcast() {
+interface PodcastProps {
+  clear?: boolean;
+}
+export default function Podcast({ clear = false }: PodcastProps) {
   const id = useParams().podcastId;
 
   const { loading, getPodcast } = useGetPodcastSingle({ id });
@@ -19,11 +22,12 @@ export default function Podcast() {
   return (
     <div className="Podcast">
       <Info podcast={Podcast} />
-
-      <div className="episodes">
-        <Count amount={Podcast.count} />
-        <Table list={Podcast.episodes} />
-      </div>
+      {!clear && (
+        <div className="episodes">
+          <Count amount={Podcast.count} />
+          <Table list={Podcast.episodes} />
+        </div>
+      )}
     </div>
   );
 }
