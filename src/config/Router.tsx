@@ -36,7 +36,6 @@ export default function Router({ Layout }: RouterProps) {
             path="podcast/:podcastId"
             element={<Outlet context={{ fromOutlet: false }} />} // Default context
           >
-            {/* Podcast at the base route */}
             <Route
               index
               element={
@@ -46,7 +45,6 @@ export default function Router({ Layout }: RouterProps) {
               }
             />
 
-            {/* Podcast + Episode */}
             <Route
               path="episode/:episodeId"
               element={
