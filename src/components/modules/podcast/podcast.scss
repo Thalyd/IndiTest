@@ -1,0 +1,5 @@
+@import "@Config/Mixins.scss";
+
+.card {
+  @include card;
+}

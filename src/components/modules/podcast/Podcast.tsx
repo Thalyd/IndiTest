@@ -16,7 +16,13 @@ export default function Podcast() {
     <div className="Podcast">
       {loading || !Podcast ?
         <Spinner />
-      : <h1>{Podcast.name}</h1>}
+      : <div className="card">
+          <div>{Podcast.image}</div>
+          <div>{Podcast.name}</div>
+          <div>{Podcast.author}</div>
+          <div>{Podcast.description}</div>
+        </div>
+      }
     </div>
   );
 }
