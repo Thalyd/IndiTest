@@ -4,11 +4,13 @@ import Router from "@Config/Router";
 import ContextCache from "@Config/contextCache.tsx";
 
 /**
- * El componente raíz de la aplicación. Este componente es el punto de
- * entrada a la aplicación y se encarga de configurar el enrutador y el
- * contexto de la aplicación.
- * @returns {JSX.Element}
- * - un elemento JSX que contiene el enrutador y el contexto.
+ * El componente de nivel superior para la aplicación.
+ *
+ * Este componente envuelve el componente Router con el proveedor de contexto ContextCache
+ * que proporciona los datos del podcast al resto de la
+ * aplicación.
+ *
+ * @returns {JSX.Element} El componente de nivel superior para la aplicación.
  */
 function App() {
   return (

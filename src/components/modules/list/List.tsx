@@ -9,17 +9,15 @@ import SearchTool from "@Modules/list//searchTool/searchTool";
 import NoResults from "@Modules/list//noResults/noResults";
 
 /**
- * Un componente funcional que muestra una lista de podcasts.
+ * Muestra una lista de podcasts.
  *
- * Este componente obtiene una lista de podcasts del hook useGetPodcasts
- * y los muestra como tarjetas. Incluye una barra de búsqueda para filtrar
- * los podcasts mostrados por nombre o autor. Mientras se cargan los datos,
- * se muestra un indicador. Si ningún podcast coincide con los criterios de búsqueda,
- * se muestra un mensaje "Sin resultados".
+ * Este componente utiliza el hook `useGetPodcasts` para obtener la lista de
+ * podcasts y muestra una lista de tarjetas con la informaci n de cada podcast.
+ * Tambi n incluye un componente de b squeda que actualiza en tiempo real la
+ * lista de tarjetas que se muestran.
  *
- * @returns {JSX.Element} Un div que contiene la lista de podcasts o un indicador de carga.
+ * @returns {JSX.Element} Un JSX con la lista de tarjetas de podcasts.
  */
-
 export default function List() {
   const { podList, loading } = useGetPodcasts();
 

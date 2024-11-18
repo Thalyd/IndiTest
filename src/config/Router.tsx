@@ -10,21 +10,14 @@ interface RouterProps {
 }
 
 /**
- * Router es un componente que utiliza React Router para gestionar las
- * rutas de la aplicación.
- *
- * La ruta raiz muestra la lista de podcasts y cada podcast en una ruta
- * como "podcast/:podcastId". Dentro de cada podcast, se muestra el
- * componente Podcast y se crea una ruta hija para cada episodio
- * como "episode/:episodeId". La ruta hija muestra el componente Episode.
+ * Un enrutador que renderiza una lista de podcasts en la ruta raíz y un podcast en
+ * la ruta "podcast/:podcastId". Si la ruta es "podcast/:podcastId/episode/:episodeId",
+ * renderiza el podcast y su episodio.
  *
  * @param {RouterProps} props
- * - Layout: el componente que se usará como layout para la aplicación.
- *   Debe ser un componente que renderize un <Outlet />
- *   para mostrar el contenido de la ruta actual.
+ * - Diseño: un componente React con el que envolver las rutas.
  *
- * @returns {JSX.Element}
- * - un elemento JSX que contiene la configuración de las rutas.
+ * @returns {JSX.Element} un componente BrowserRouter con las rutas especificadas.
  */
 export default function Router({ Layout }: RouterProps) {
   return (

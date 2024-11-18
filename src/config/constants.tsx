@@ -1,7 +1,7 @@
 /**
  *   @CorrsEvader : La url de la API de AllOrigins para obtener la respuesta en formato JSON.
  *   @CacheMemory : La duración de la memoria cache en milisegundos.
- *
+ *   @EpisodesPerRequest : Cantidad de episodios por solicitud.
  */
 
 export const CorrsEvader = "https://api.allorigins.win/get?url=";

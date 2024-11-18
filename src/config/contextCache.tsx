@@ -17,18 +17,31 @@ interface PodDataWithMem extends PodData {
 }
 
 /**
- * ContextCache es un contexto que envuelve toda la aplicación y almacena
- * la lista de podcasts en el almacenamiento local. La lista de podcasts se almacena en
- * el almacenamiento local con una marca de tiempo de cuándo se almacenó y una marca de tiempo de
- * vencimiento. La lista de podcasts solo se recupera del almacenamiento local
- * si la marca de tiempo de vencimiento es en el futuro.
+ * El proveedor de contexto para la cache de la aplicación.
  *
- * @param {{ children?: React.ReactNode; }} props
- * - children: los componentes secundarios que se envolverán en el contexto.
+ * Este proveedor crea, gestiona y proporciona una cache de la lista de
+ * podcasts y sus correspondientes datos individuales. La cache se guarda
+ * en el almacenamiento local del navegador y se actualiza cada vez que
+ * se cambia una de las listas.
  *
- * @returns {JSX.Element}
- * - un elemento JSX que envuelve a los secundarios con el proveedor de contexto.
+ * El proveedor expone las siguientes propiedades:
+ * - podList: La lista de podcasts.
+ * - podsData: La lista de los datos individuales de los podcasts.
+ * - setPodList: La función para actualizar la lista de podcasts.
+ * - setPodsData: La función para actualizar la lista de los datos individuales
+ *   de los podcasts.
+ * - updatePodList: La función para actualizar la lista de los datos individuales
+ *   de un podcast.
+ * - getPodcast: La función para obtener los datos de un podcast.
+ * - getEpisode: La función para obtener los datos de un episodio.
+ * - updateList: La función para actualizar la lista de podcasts.
+ *
+ * @param {children?: React.ReactNode} Los componentes hijos que se
+ *   renderizarán con el proveedor de contexto.
+ * @returns {JSX.Element} El proveedor de contexto que renderiza los
+ *   componentes hijos.
  */
+
 export default function ContextCache({
   children,
 }: {

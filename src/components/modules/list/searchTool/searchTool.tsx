@@ -17,8 +17,8 @@ interface SearchToolProps {
  *
  * @param {SearchToolProps} props
  * - UpdateParent: una función para actualizar el componente padre con el valor de entrada.
- * - Count: un número que representa el recuento que se mostrará.
- * - debounce: un booleano opcional para habilitar debounce de los cambios de entrada.
+ * - Count: un número que representa el recuento que se mostrar .
+ * - debounce: un booleano opcional para habilitar debounce de los cambios de entrada. El valor predeterminado es true.
  *
  * @returns {JSX.Element} Un div que contiene la entrada de búsqueda y la pantalla de recuento.
  */

@@ -26,6 +26,24 @@ interface UseGetPodcastSingleProps {
   id: string;
 }
 
+/**
+ * Hook para obtener un podcast y sus episodios.
+ *
+ * Este hook utiliza el contexto CacheMem para obtener el estado de la lista de
+ * podcasts y actualizarlo. La lista de episodios se obtiene mediante una solicitud a la API
+ * de iTunes y se actualiza en el estado del contexto.
+ *
+ * @param {UseGetPodcastSingleProps} props
+ * - id: el id del podcast que se va a obtener.
+ *
+ * @returns {Object} Un objeto con las siguientes propiedades:
+ * - podsData: la lista de podcasts.
+ * - loading: booleano que indica si se est  obteniendo la lista de podcasts.
+ * - complete: booleano que indica si la operaci n de obtenci n de la lista se ha
+ *   completado.
+ * - getPodcast: una funci n que devuelve el podcast con el id especificado.
+ * - getEpisode: una funci n que devuelve el episodio con el id especificado.
+ */
 export function useGetPodcastSingle({ id }: UseGetPodcastSingleProps) {
   const { podsData, updatePodList, getPodcast, getEpisode } =
     useContext(CacheMem);

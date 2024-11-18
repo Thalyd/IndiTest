@@ -10,27 +10,23 @@ interface useAxiosProps {
 }
 
 /**
- * Hook para realizar una petición HTTP a una API.
+ * Hook personalizado para obtener datos de una API.
  *
- * El Hook devuelve un objeto con las siguientes propiedades:
- * - datos: el resultado de la petición en formato JSON.
- * - cargando: un booleano que indica si la petición está en curso.
- * - complete: un booleano que indica si la petici n ha finalizado.
+ * Este hook admite opciones para especificar la url, el tipo de solicitud (GET, POST, PUT, DELETE)
+ * y un valor booleano para saltar la solicitud.
  *
- * Se pueden pasar los siguientes por metros:
- * - url: la URL de la petición.
- * - tipo: el tipo de petición ("GET", "POST", "PUT", "DELETE").
- * - skip: un booleano que indica si se debe omitir la petición n.
+ * @param {useAxiosProps} props
+ * - url: la url de la API que se va a llamar.
+ * - type: el tipo de solicitud (GET, POST, PUT, DELETE). Por defecto se utiliza GET.
+ * - skip: booleano para saltar la solicitud. Por defecto es false.
  *
- * La petición se env a solo si el par metro skip es falso y si el gancho
- * no ha sido llamado anteriormente.
- *
- * @example
- * const { datos, cargando, completo } = useApiCall({
- * url: "https://api.example.com/data",
- * tipo: "GET",
- * });
+ * @returns {Object} Un objeto que contiene:
+ * - data: los datos obtenidos de la API.
+ * - loading: booleano que indica si los datos se est n obteniendo.
+ * - complete: booleano que indica si la operación de obtención se ha completado.
+ * - error: el error que se produjo durante la obtenci n de los datos.
  */
+
 export default function useApiCall({
   url,
   type = "GET",
