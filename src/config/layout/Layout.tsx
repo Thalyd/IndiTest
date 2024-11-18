@@ -5,15 +5,19 @@ import { useTranslation } from "react-i18next";
 interface LayoutProps {
   children: React.ReactNode;
 }
-
 /**
- * Un componente de diseño que representa un header y un área de contenido.
- * El header es actualmente está diseñado para que su fuente se haga mas grande mientras mas pequeña sea la pantalla.
+ * Un componente de diseño que envuelve a sus hijos con un encabezado y una sección de contenido.
  *
- * @param {React.ReactNode} children: el contenido que se representará en el área de contenido.
+ * El encabezado contiene un enlace que lleva a la página de inicio, con el texto
+ * traducido usando la biblioteca i18next.
  *
- * @returns {JSX.Element} Un elemento JSX que representa el componente.
+ * @param {LayoutProps} props: los props para el componente.
+ * @param {React.ReactNode} props.children: los componentes secundarios que se van a representar
+ * dentro del diseño.
+ *
+ * @returns {JSX.Element} Un elemento JSX que incluye un encabezado y una sección de contenido.
  */
+
 export default function Layout({ children }: LayoutProps) {
   const { t } = useTranslation();
   return (

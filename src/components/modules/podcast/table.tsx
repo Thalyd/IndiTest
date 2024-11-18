@@ -7,6 +7,17 @@ interface TableProps {
   list: Episode[];
 }
 
+/**
+ * Un componente de tabla que muestra una lista de episodios.
+ *
+ * El componente muestra el título, la fecha y la duración de cada episodio en una tabla.
+ * El usuario puede navegar a la página del episodio haciendo clic en el título del episodio.
+ *
+ * @param {TableProps} props
+ * - lista: una matriz de objetos Episode.
+ *
+ * @returns {JSX.Element} un elemento JSX que representa el componente.
+ */
 export default function Table({ list }: TableProps) {
   const { t } = useTranslation();
 

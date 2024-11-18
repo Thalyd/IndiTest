@@ -5,6 +5,15 @@ interface AudioProps {
   isPlaying: boolean;
   hasVolume: boolean;
 }
+/**
+ * Un componente que muestra un reproductor de audio con una barra de búsqueda.
+ *
+ * @param {AudioProps} props
+ * - audio: la URL del archivo de audio que se reproducirá.
+ * - isPlaying: si se debe reproducir el audio o no. El valor predeterminado es falso.
+ * - hasVolume: si se debe tener volumen o no. El valor predeterminado es falso.
+ * @returns {JSX.Element} Un componente que muestra un reproductor de audio con una barra de búsqueda.
+ */
 export default function Audio({
   audio,
   isPlaying = false,

@@ -10,16 +10,17 @@ export interface ITunesListItem {
 }
 
 /**
- * Hook personalizado para obtener y administrar una lista de podcasts desde la API de iTunes.
+ * Hook para obtener la lista de podcasts.
  *
- * Este hook recupera los podcasts principales de un género específico y los almacena
- * en un caché de contexto. Verifica si la lista de podcasts ya está cargada para
- * evitar llamadas a la API redundantes.
+ * Este hook utiliza el contexto CacheMem para obtener el estado de la lista de
+ * podcasts y actualizarlo. La lista se obtiene mediante una solicitud a la API
+ * de iTunes y se actualiza en el estado del contexto.
  *
- * @returns {Object} Un objeto que contiene:
- * - podList: La lista de podcasts.
- * - loading: Booleano que indica si los datos aún se están obteniendo.
- * - complete: Booleano que indica si la operación de obtención se ha completado.
+ * @returns {Object} Un objeto con tres propiedades:
+ * - podList: la lista de podcasts.
+ * - loading: booleano que indica si se est  obteniendo la lista de podcasts.
+ * - complete: booleano que indica si la operaci n de obtenci n de la lista se ha
+ *   completado.
  */
 export function useGetPodcasts() {
   const { podList, updateList } = useContext(CacheMem);
