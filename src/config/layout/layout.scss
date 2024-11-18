@@ -19,11 +19,6 @@ header {
 #content {
   width: 80%;
   margin: auto;
-  display: grid;
-  grid-template-areas:
-    ".........."
-    "..........";
-  grid-template-columns: repeat(10, 10%);
 }
 
 a {

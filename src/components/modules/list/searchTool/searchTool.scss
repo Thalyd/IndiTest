@@ -32,11 +32,11 @@ input {
 
   margin-bottom: 100px;
   position: relative;
-}
-svg {
-  transform: scale(0.6);
-  path {
-    fill: $linkColor;
+  svg {
+    transform: scale(0.6);
+    path {
+      fill: $linkColor;
+    }
   }
 }
 

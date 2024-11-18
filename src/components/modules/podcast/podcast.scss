@@ -6,7 +6,7 @@
   grid-area: 1/1 / span 1 / span 3;
   min-width: 200px;
   animation-iteration-count: 0 !important;
-  pointer-events: none;
+
   max-height: unset;
   > div {
     width: 100%;
@@ -46,10 +46,14 @@
   text-align: start !important;
 }
 .Podcast {
-  grid-area: 1 / 1 / -1 / -1;
-  display: inherit;
-  grid-template: inherit;
-  grid-template-rows: 500px 1fr;
+  display: grid;
+  grid-template-columns: repeat(10, 10%);
+  &.inherit {
+    display: block;
+    float: left;
+    width: 30%;
+    margin-right: 10%;
+  }
 }
 
 .count {

@@ -1,24 +1,26 @@
 import { lazy, Suspense } from "react";
 
 interface IconProps {
-  name: "Close";
+  name: "Close" | "Play" | "Pause" | "Volume" | "Muted";
 }
 export default function Icon({ name }: IconProps) {
   const IconList = {
     Close: lazy(() => import("./list/close")),
+    Play: lazy(() => import("./list/play")),
+    Pause: lazy(() => import("./list/pause")),
+    Volume: lazy(() => import("./list/volume")),
+    Muted: lazy(() => import("./list/muted")),
   };
 
   const LazyPath = IconList[name];
 
   if (!LazyPath) {
-    return <div>Icon not found</div>;
+    return null;
   }
 
   return (
-    <svg viewBox="0 0 25 25">
-      <Suspense fallback={<div>Loading...</div>}>
-        <LazyPath />
-      </Suspense>
-    </svg>
+    <Suspense>
+      <LazyPath />
+    </Suspense>
   );
 }

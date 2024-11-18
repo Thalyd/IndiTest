@@ -138,6 +138,12 @@ export default function ContextCache({
     return podsData.find((pod: PodData) => pod.id === Number(id));
   }
 
+  function getEpisode(podcastId: string, episodeId: string) {
+    return podsData
+      .find((pod: PodData) => pod.id === Number(podcastId))
+      .episodes.find((episode: any) => episode.id === Number(episodeId));
+  }
+
   const cacheValue = useMemo(
     () => ({
       podList,
@@ -146,6 +152,7 @@ export default function ContextCache({
       setPodsData,
       updatePodList,
       getPodcast,
+      getEpisode,
       updateList,
     }),
     [
@@ -155,6 +162,7 @@ export default function ContextCache({
       setPodsData,
       updatePodList,
       getPodcast,
+      getEpisode,
       updateList,
     ]
   );

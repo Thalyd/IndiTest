@@ -20,8 +20,8 @@ export default function Podcast({ clear = false }: PodcastProps) {
   if (loading || !Podcast) return <Spinner />;
 
   return (
-    <div className="Podcast">
-      <Info podcast={Podcast} />
+    <div className={"Podcast" + (clear ? " inherit" : "")}>
+      <Info podcast={Podcast} clear={clear} />
       {!clear && (
         <div className="episodes">
           <Count amount={Podcast.count} />
