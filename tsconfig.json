@@ -12,6 +12,8 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
