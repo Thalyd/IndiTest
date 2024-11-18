@@ -18,6 +18,7 @@ Utilizaremos una SPA simple para este caso, sin más esfuerzos que el create app
 ### Notas
 
 - **Acerca de SASS** : En mi opinión personal, los procesadores de CSS nacen para cubrir necesidades que hoy en dia cubre mucho mejor un procesador de CSS javascript como por ejemplo emotion/styled, ya que estos gestionan mejor los cambios de estado para alterar sus variables.
+  El componente **audio** se ha hecho con emotion/styled como ejemplo
 
 - **IA** : Nos servimos de Codeium para generar ágilmente la documentación, pero siempre revisandola antes.
 - **Formatter** : Prettier

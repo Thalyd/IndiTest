@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import "./episode.scss";
 import { useGetPodcastSingle } from "@Api/useGetPodcastSingle";
 import Spinner from "@Components/spinner/spinner";
+import Player from "./player";
 
 export default function Episode() {
   const podcastId = useParams().podcastId;
@@ -29,6 +30,7 @@ export default function Episode() {
             __html: formattedDescription,
           }}
         />
+        <Player audio={Episode.url} />
       </div>
     </div>
   );

@@ -18,9 +18,69 @@
     text-align: left;
     font-style: italic;
     white-space: break-spaces;
-    width: "100%";
+    width: 100%;
+    padding-bottom: 15px;
+    @include separator;
   }
   .link {
     color: $linkColor !important;
+
+    line-break: anywhere;
+  }
+
+  .player {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    background-color: rgb(24, 24, 24);
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+
+    .action {
+      cursor: pointer;
+      height: 50px;
+      width: 50px;
+      svg {
+        position: relative;
+        width: 50px;
+        margin-left: 25%;
+        margin-top: 25%;
+        path {
+          fill: white;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .Episode {
+  }
+
+  .Podcast {
+    margin-right: 0px !important;
+    margin-bottom: 30px !important;
+    width: 100% !important;
+    .info {
+      display: grid;
+      * {
+        border-bottom: none !important;
+      }
+      grid-template-areas:
+        "a b b"
+        "a c c";
+      grid-template-columns: 34% 33% 33%;
+      grid-template-rows: 50% 50%;
+      > div:first-of-type {
+        grid-area: a;
+      }
+      > div:nth-of-type(2) {
+        grid-area: b;
+      }
+      > div:last-of-type {
+        grid-area: c;
+      }
+    }
   }
 }
