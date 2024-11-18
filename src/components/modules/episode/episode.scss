@@ -50,6 +50,10 @@
           fill: white;
         }
       }
+      &:last-of-type svg {
+        margin-left: 20%;
+        margin-top: 20%;
+      }
     }
   }
 }

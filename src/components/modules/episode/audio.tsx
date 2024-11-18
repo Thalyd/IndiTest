@@ -73,6 +73,10 @@ export default function Audio({
 const Content = styled.div({
   backgroundColor: "black",
   color: "white",
+  span: {
+    fontSize: "15px",
+    backgroundColor: "black",
+  },
   ".progress": {
     display: "grid",
     gridTemplateColumns: "1fr 80px",
