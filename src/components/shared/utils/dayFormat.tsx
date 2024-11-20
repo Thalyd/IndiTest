@@ -1,4 +1,5 @@
 import ensureCero from "@Utils/ensureCero";
+import clearTimeZone from "./clearTimeZone";
 
 /**
  * Devuelve una cadena con el formato dd/mm/yyyy a partir de un objeto Date.
@@ -8,9 +9,10 @@ import ensureCero from "@Utils/ensureCero";
  * @returns {string} Un string con el formato dd/mm/yyyy.
  */
 export default function dayFormat(timeString: Date) {
-  const time = new Date(timeString);
+  const time = new Date(clearTimeZone(new Date(timeString)));
+
   return (
-    ensureCero(time.getDay()) +
+    ensureCero(time.getDate()) +
     "/" +
     ensureCero(time.getMonth() + 1) +
     "/" +
