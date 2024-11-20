@@ -1,0 +1,138 @@
+@import "@Config/Mixins.scss";
+
+.info {
+  @include card;
+  justify-content: start;
+  grid-area: 1/1 / span 1 / span 3;
+  min-width: 200px;
+  animation-iteration-count: 0 !important;
+
+  max-height: unset;
+  > div {
+    width: 100%;
+    padding: 20px 0px;
+  }
+  > div:first-of-type,
+  > div:nth-of-type(2) {
+    @include separator;
+  }
+  > div:nth-of-type(2) {
+    p {
+      margin-bottom: 0px;
+    }
+    p:first-of-type {
+      font-weight: bold;
+    }
+    p:last-of-type {
+      font-style: italic;
+    }
+  }
+  > div:first-of-type {
+    text-align: center;
+    img {
+      width: 70%;
+      max-width: 200px;
+    }
+  }
+  > div:last-of-type {
+    p:first-of-type {
+      font-weight: bold;
+    }
+    p:last-of-type {
+      font-style: italic;
+    }
+  }
+
+  text-align: start !important;
+}
+.Podcast {
+  display: grid;
+  grid-template-columns: repeat(10, 10%);
+  &.inherit {
+    display: block;
+    float: left;
+    width: 30%;
+    margin-right: 10%;
+  }
+}
+
+.count {
+  @include card;
+  display: flex;
+  justify-content: start;
+  flex-direction: unset;
+  font-weight: bold;
+  color: #303030;
+}
+
+.episodes {
+  grid-area: 1/5 / span 2 / span 6;
+}
+
+.table {
+  @include card;
+  margin-bottom: 80px;
+  margin-top: 20px;
+  gap: 0px;
+  width: calc(100% - 30px);
+  &:first-of-type p {
+    padding-left: 10px;
+  }
+  li {
+    &:first-of-type {
+      display: grid;
+      grid-template-columns: 1fr minMax(70px, 100px) minMax(70px, 100px);
+      p {
+        font-weight: bold;
+      }
+    }
+    &:not(:first-of-type) {
+      &:hover {
+        transform: scale(1.01);
+        outline: 2px solid rgba(0, 0, 0, 0.178);
+        transition: all 0.1s linear;
+        outline-offset: -2px;
+      }
+    }
+
+    &:not(:last-of-type) {
+      @include separator;
+    }
+
+    p {
+      margin-bottom: 0px;
+      padding: 10px 0px;
+      padding-bottom: 0px;
+      margin-bottom: 10px;
+    }
+
+    a {
+      display: grid;
+      grid-template-columns: 1fr minMax(70px, 100px) minMax(70px, 100px);
+      p:first-of-type {
+        color: $linkColor;
+      }
+    }
+    width: 100%;
+    text-align: left;
+    &:nth-child(even) {
+      background-color: #f1f1f1;
+    }
+    &:nth-child(odd) {
+      background-color: #ffffff;
+    }
+    p:last-of-type {
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .episodes {
+    grid-area: 2/1 / span 1 / span 10;
+    margin-top: 40px;
+  }
+  .info {
+    grid-area: 1/1 / span 1 / span 10;
+  }
+}

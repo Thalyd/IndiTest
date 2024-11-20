@@ -1,0 +1,40 @@
+@import "@Config/Mixins.scss";
+
+.noResults {
+  @include card;
+  animation: shake 0.3s linear;
+  list-style: none;
+
+  margin: auto;
+  position: relative;
+  padding-top: 30px;
+  animation-iteration-count: 3;
+
+  justify-content: space-between;
+  p:last-of-type {
+    color: gray;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+    box-shadow: 0px 0px 10px 0px #0000003b;
+  }
+  25% {
+    transform: translateX(-15px);
+    box-shadow: -5px 0px 10px 0px #0000003b;
+  }
+  50% {
+    transform: translateX(0);
+    box-shadow: 0px 0px 10px 0px #0000003b;
+  }
+  75% {
+    transform: translateX(15px);
+    box-shadow: 5px 0px 10px 0px #0000003b;
+  }
+  100% {
+    transform: translateX(0);
+    box-shadow: 0px 0px 10px 0px #0000003b;
+  }
+}
