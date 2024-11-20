@@ -5,5 +5,8 @@
  * @returns {string | number} El valor con un cero a la izquierda si es menor a 10, de lo contrario el valor original.
  */
 export default function ensureCero(value) {
+  if (value == null || value === undefined) {
+    return "00";
+  }
   return value < 10 ? "0" + value : value;
 }
